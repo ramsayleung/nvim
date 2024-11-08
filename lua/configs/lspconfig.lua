@@ -2,7 +2,7 @@
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls" }
+local servers = { "html", "cssls", "lua_ls", "rust_analyzer", "pyright", "ts_ls"}
 
 local M = {}
 local map = vim.keymap.set

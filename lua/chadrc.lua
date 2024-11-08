@@ -6,12 +6,30 @@
 local M = {}
 
 M.base46 = {
-	theme = "nano-light",
-
+	theme = "github_light",
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },
 	-- },
 }
+
+M.ui = {
+  statusline = {
+    theme = "vscode",
+    separator_style = "arrow"
+
+  }
+}
+
+
+ M.term = {
+   winopts = { number = true },
+   sizes = { sp = 0.4, vsp = 0.2, ["bo sp"] = 0.4, ["bo vsp"] = 0.2 },
+   float = {
+     row = 0.3, col = 0.25,
+     width = 0.5, height = 0.4,
+     border = "single",
+   },
+ }
 
 return M
