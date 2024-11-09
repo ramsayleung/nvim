@@ -97,6 +97,12 @@ return {
     cmd = "WhichKey",
     opts = function()
       dofile(vim.g.base46_cache .. "whichkey")
+      local wk = require("which-key")
+
+      -- Register groups
+      wk.add({
+      })
+
       return {}
     end,
   },
@@ -204,13 +210,20 @@ return {
   },
   -- theme
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {
+    'smoka7/hop.nvim',
+    tag = 'v2.5.1', -- latest Jan 1st 2024
+    lazy = false,
+    config = function()
+      local hop = require('hop')
+
+      hop.setup {
+        keys = "asdfghjkl'qwertyuiopzxcvbnm,.",
+        case_insensitive = true,
+      }
+
+      vim.keymap.set("n", "<leader>jj", "<cmd>HopWord<CR>", { silent = true, noremap = false, desc = "HopWord" })
+      vim.keymap.set("n", "<leader>jl", "<cmd>HopLine<CR>", { silent = true, noremap = false, desc = "HopWordMW" })
+    end
+  },
 }
