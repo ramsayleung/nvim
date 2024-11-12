@@ -99,6 +99,14 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
+
+lspconfig.rust_analyzer.setup({
+  on_attach = function(client, _bufnr)
+    vim.lsp.inlay_hint.enable(true, {0})
+  end
+})
+
 return M
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
