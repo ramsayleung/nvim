@@ -222,7 +222,7 @@ return {
         case_insensitive = true,
       }
 
-      vim.keymap.set("n", "<leader>jj", "<cmd>HopWord<CR>", { silent = true, noremap = false, desc = "HopWord" })
+      vim.keymap.set("n", "<leader>jj", "<cmd>HopChar1<CR>", { silent = true, noremap = false, desc = "HopWord" })
       vim.keymap.set("n", "<leader>jl", "<cmd>HopLine<CR>", { silent = true, noremap = false, desc = "HopWordMW" })
     end
   },

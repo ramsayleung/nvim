@@ -36,13 +36,19 @@ map("n", "<S-tab>", function()
   require("nvchad.tabufline").prev()
 end, { desc = "buffer goto prev" })
 
-map("n", "<leader>x", function()
+map("n", "<C-x>k", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "buffer close" })
+
+-- Emacs keybinding
+map('n', '<M-.>', '<C-]>', { noremap = true, desc = 'Jump to definition' })
+map('n', '<M-,>', '<C-o>', { noremap = true, desc = 'Jump back' })
 
 -- Comment
 map("n", "<leader>;", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>;", "gc", { desc = "toggle comment", remap = true })
+map("n", "<M-;>", "gcc", { desc = "toggle comment", remap = true })
+map("v", "<M-;>;", "gc", { desc = "toggle comment", remap = true })
 
 -- nvimtree
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
@@ -88,7 +94,7 @@ map("n", "<leader>wk", function()
 end, { desc = "whichkey query lookup" })
 
 function ProjectRoot()
-	return require("custom.project").get_root()
+	return require("configs.project").find_project_root()
 end
 
 map('n', '<leader>fe', function()
@@ -117,5 +123,13 @@ map("n", "<leader>fr", "<cmd>Telescope oldfiles<CR>", { desc = "telescope find o
 map("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "telescope help page" })
 
 -- <leader>p (project)
-map('n', '<leader>pf', '<cmd>Telescope git_files<cr>', {silent=true, desc='Find file in project'})
 map("n", "<leader>ps", "<cmd>Telescope live_grep<CR>", { desc = "Search in project" })
+
+-- Telescope keybinding using project root
+vim.keymap.set('n', '<leader>pf', function()
+    local root = ProjectRoot()
+    require('telescope.builtin').find_files({
+        cwd = root,
+        prompt_title = "Files in " .. root
+    })
+end, {desc = "Find project files"})
