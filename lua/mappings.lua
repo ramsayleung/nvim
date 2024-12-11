@@ -26,7 +26,7 @@ map("n", "<leader>fm", function()
 end, { desc = "general format file" })
 
 -- global lsp mappings
-map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
+map("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "LSP diagnostic loclist" })
 
 map("n", "<tab>", function()
   require("nvchad.tabufline").next()
