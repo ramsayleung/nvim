@@ -16,6 +16,7 @@ M.on_attach = function(_, bufnr)
   map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
   map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
   map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
+  map("n", "gr", require("telescope.builtin").lsp_references, opts "Go to references")
   map("n", "<leader>sh", vim.lsp.buf.signature_help, opts "Show signature help")
   map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Add workspace folder")
   map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Remove workspace folder")
@@ -30,7 +31,6 @@ M.on_attach = function(_, bufnr)
   map("n", "<leader>ds", require('telescope.builtin').lsp_document_symbols, opts "[D]ocument [S]ymbols")
 
   map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Code action")
-  map("n", "gr", vim.lsp.buf.references, opts "Show references")
 end
 
 -- disable semanticTokens

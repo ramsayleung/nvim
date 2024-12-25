@@ -43,6 +43,7 @@ end, { desc = "buffer close" })
 -- Emacs keybinding
 map('n', '<M-.>', '<C-]>', { noremap = true, desc = 'Jump to definition' })
 map('n', '<M-,>', '<C-o>', { noremap = true, desc = 'Jump back' })
+map('n', '<M-?>', require("telescope.builtin").lsp_references, { noremap = true, desc = 'Find Reference' })
 
 -- Comment
 map("n", "<leader>;", "gcc", { desc = "toggle comment", remap = true })
