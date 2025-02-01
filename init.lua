@@ -28,3 +28,10 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Auto-save after 1000 milliseconds (1 second) of no changes
+vim.opt.updatetime = 1000
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+    pattern = "*",
+    command = "silent! wall"
+})

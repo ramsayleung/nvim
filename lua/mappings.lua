@@ -117,6 +117,7 @@ end, { desc = 'Explorer (cwd)'})
 -- <leader>b (buffer) tabufline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 map("n", "<leader>bb", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
+map("n", "<C-x>b", "<cmd>Telescope buffers<CR>", { desc = "telescope find buffers" })
 
 -- <leader>f (find&file)
 map("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "telescope find files" })
